@@ -1,19 +1,21 @@
+import br.com.alura.screenmatch.calculations.TimeCalculator;
 import br.com.alura.screenmatch.model.Movie;
 import br.com.alura.screenmatch.model.TVShow;
 
 public class Main {
     public static void main(String[] args) {
-        Movie firstMovie = new Movie();
-        firstMovie.setName("Invocação do Mal");
-        firstMovie.setReleaseDate(2013);
-        firstMovie.setLengthMinutes(112);
+        Movie myMovie = new Movie();
+        myMovie.setName("Invocação do Mal");
+        myMovie.setReleaseDate(2013);
+        myMovie.setLengthMinutes(112);
+        System.out.println("Duração do filme: " + myMovie.getLengthMinutes());
 
-        firstMovie.displaySheet();
-        firstMovie.rating(10);
-        firstMovie.rating(8);
-        firstMovie.rating(9);
-        System.out.println("Total de avaliações: " + firstMovie.getRatingTotal());
-        System.out.println(firstMovie.getAverage());
+        myMovie.displaySheet();
+        myMovie.rating(10);
+        myMovie.rating(8);
+        myMovie.rating(9);
+        System.out.println("Total de avaliações: " + myMovie.getRatingTotal());
+        System.out.println(myMovie.getAverage());
 
         TVShow lost = new TVShow();
         lost.setName("Lost");
@@ -21,6 +23,19 @@ public class Main {
         lost.displaySheet();
         lost.setSeasons(6);
         lost.setEpisodesSeasons(22);
-        System.out.println("Duração do filme: " + lost.getLengthMinutes());
+        lost.setMinutesEpisodes(45);
+        System.out.println("Duração para maratonar Lost: " + lost.getLengthMinutes());
+
+
+        Movie anotherMovie = new Movie();
+        anotherMovie.setName("Lemonade Mouth");
+        anotherMovie.setReleaseDate(2011);
+        anotherMovie.setLengthMinutes(90);
+
+
+        TimeCalculator calculator = new TimeCalculator();
+        calculator.includes(myMovie);
+        calculator.includes(anotherMovie);
+        System.out.println(calculator.getTotalTime());
     }
 }

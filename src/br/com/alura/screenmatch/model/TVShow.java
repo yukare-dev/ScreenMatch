@@ -37,4 +37,9 @@ public class TVShow extends Tittle {
     public void setMinutesEpisodes(int minutesEpisodes) {
         this.minutesEpisodes = minutesEpisodes;
     }
+
+    @Override
+    public int getLengthMinutes() {
+        return seasons * episodesSeasons * minutesEpisodes;
+    }
 }
