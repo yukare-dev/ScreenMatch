@@ -1,6 +1,8 @@
 package br.com.alura.screenmatch.model;
 
-public class Movie extends Tittle {
+import br.com.alura.screenmatch.calculations.Rate;
+
+public class Movie extends Tittle implements Rate {
     private String director;
 
     public String getDirector() {
@@ -9,5 +11,10 @@ public class Movie extends Tittle {
 
     public void setDirector(String director) {
         this.director = director;
+    }
+
+    @Override
+    public int getRate() {
+        return (int) getRatingTotal() / 2;
     }
 }
